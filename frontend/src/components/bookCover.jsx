@@ -5,11 +5,11 @@ import {FaEdit} from 'react-icons/fa'
 import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useBookStore } from "../store/store";
-import { useEffect } from "react";
+
 
 const BookCover = ({ book}) => {
 
-    const {deleteBooks, getSpecBook, updateBooks} = useBookStore()
+    const {deleteBooks, getSpecBook,} = useBookStore()
 
     const handleDeleteBook = async (pid) => {
         const {success, message} = await deleteBooks(pid);
@@ -33,19 +33,12 @@ const BookCover = ({ book}) => {
         }
      }
 
-     useEffect(()=>{
-        const fetchBookDetails = async () => {
-            await getSpecBook(bookId)
-        }
+    
 
-        fetchBookDetails();
-
-     }, [getSpecBook])
-
-    // const handleBookDetail = async (bookId) => {
-    //     await getSpecBook(bookId)
+    const handleBookDetail = async (bookId) => {
+        await getSpecBook(bookId)
        
-    // }
+    }
 
     // const [updatedBook, setUpdatedBook] = useState(book)
 
@@ -100,7 +93,7 @@ const BookCover = ({ book}) => {
       </Text>
       <HStack spacing={3} justify={'center'} mt={4}>
         <Link to={`/books/details/${book._id}`}>
-        <IconButton icon={<FaInfoCircle/>} color='black' bg={'white'} />
+        <IconButton icon={<FaInfoCircle/>} color='black' bg={'white'}  onClick={() => handleBookDetail(book._id)}/>
         </Link>
       
       <IconButton icon={<MdDelete/>} color='black' bg={'white'} onClick={() => handleDeleteBook(book._id)}/>
