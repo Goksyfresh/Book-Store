@@ -6,7 +6,7 @@ const BackButton = ({destination='/'}) => {
   return (
     <Box>
         <Link to={destination}>
-            <IconButton icon={<BsArrowLeft/>} color={'white'}/>
+            <IconButton icon={<BsArrowLeft/>} color={'black'} bg={'white'}/>
         </Link>
     </Box>
   )
