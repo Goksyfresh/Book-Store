@@ -27,7 +27,7 @@ const Home = () => {
     <Box>
         <Box
             display={'flex'}
-            mx={'250px'}
+            mx={{base: 100, lg:250}}
             justifyContent={'space-between'}
             alignItems={'center'}>
                 <Text as={'h1'}
@@ -51,7 +51,7 @@ const Home = () => {
         {loading ? (
             <LoadingScreen/>
         ) : (
-            <SimpleGrid columns={4}
+            <SimpleGrid columns={{sm:2, lg:4}}
         spacingX={5}
         spacingY={6}
         padding={10}
