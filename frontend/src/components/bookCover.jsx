@@ -40,7 +40,7 @@ const BookCover = ({ book}) => {
 
         fetchBookDetails();
 
-     }, [id, getSpecBook])
+     }, [getSpecBook])
 
     // const handleBookDetail = async (bookId) => {
     //     await getSpecBook(bookId)
