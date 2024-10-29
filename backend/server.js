@@ -10,7 +10,7 @@ const app = express();
 dotenv.config();
 
 app.use(cors({
-    origin:'https://book-store-git-main-goksyfreshs-projects.vercel.app/',
+    origin:'https://book-store-git-main-goksyfreshs-projects.vercel.app',
     methods:['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type']
 }))
