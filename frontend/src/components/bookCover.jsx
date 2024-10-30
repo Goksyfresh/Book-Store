@@ -1,5 +1,5 @@
 // BookCover.js
-import { Box, HStack, IconButton, Text, VStack, useDisclosure } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Text, VStack, useDisclosure, useToast } from "@chakra-ui/react";
 import {MdDelete} from 'react-icons/md'
 import {FaEdit} from 'react-icons/fa'
 import { FaInfoCircle } from "react-icons/fa";
