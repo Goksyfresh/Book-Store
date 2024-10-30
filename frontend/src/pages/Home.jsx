@@ -13,15 +13,12 @@ const Home = () => {
     
 
     useEffect( ()=>{
-        
-            
-        setLoading(true);
-        fetchBooks()
-        setLoading(false)   
-
-    
-        
-
+        const loadBooks = async () => {
+            setLoading(true);
+            await fetchBooks();
+            setLoading(false)
+        };
+        loadBooks();
     },[fetchBooks])
   return (
     <Box>
@@ -45,7 +42,7 @@ const Home = () => {
             align={'center'}
             justify={'center'}
            
-            width={'100vw'}
+            width={'100%'}
             p={5} 
        >
         {loading ? (

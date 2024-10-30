@@ -9,6 +9,8 @@ import { useBookStore } from "../store/store";
 
 const BookCover = ({ book}) => {
 
+    const toast = useToast();
+
     const {deleteBooks, getSpecBook,} = useBookStore()
 
     const handleDeleteBook = async (pid) => {
@@ -93,12 +95,12 @@ const BookCover = ({ book}) => {
       </Text>
       <HStack spacing={3} justify={'center'} mt={4}>
         <Link to={`/books/details/${book._id}`}>
-        <IconButton icon={<FaInfoCircle/>} color='black' bg={'white'}  onClick={() => handleBookDetail(book._id)}/>
+        <IconButton icon={<FaInfoCircle/>} color='black' bg={'white'}  />
         </Link>
       
       <IconButton icon={<MdDelete/>} color='black' bg={'white'} onClick={() => handleDeleteBook(book._id)}/>
       
-        <Link to={'/books/edit/id'}>
+        <Link to={`/books/edit/${book._id}`}>
         <IconButton icon={<FaEdit/>} color='black' bg={'white'}/>
         </Link>
         

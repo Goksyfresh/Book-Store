@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useBookStore } from '../store/store'
 import BackButton from '../components/backButton'
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
+import { useParams } from 'react-router-dom'
 
 const ShowBook = () => {
-    const {books, getSpecBook} = useBookStore()
-  
 
+    const {id} = useParams();
+    const {selectedBook, getSpecBook} = useBookStore()
+  
+    useEffect(()=> {
+        getSpecBook(id);
+    },[id, getSpecBook])
   
   return (
     
@@ -24,10 +29,10 @@ const ShowBook = () => {
         {/* About Section */}
         <Box textAlign="center">
           <Heading size="md" mb={2}>
-            About {books.title}
+            About {selectedBook.title}
           </Heading>
           <Text>
-           {books.about}
+           {selectedBook.about}
           </Text>
         </Box>
 
@@ -37,7 +42,7 @@ const ShowBook = () => {
             Review
           </Heading>
           <Text fontSize="2xl" fontWeight="bold">
-            {books.review}/5
+            {selectedBook.review}/5
           </Text>
         </Box>
       </VStack>

@@ -1,7 +1,9 @@
 import {create} from 'zustand'
 export const useBookStore = create((set) => ({
     books: [],
+    selectedBook: null,
     setBooks: (books) => set({ books }),
+    setSelectedBook : (book) => set({selectedBook: book}),
   
     fetchBooks: async () => {
       const res = await fetch('https://book-store-veif.onrender.com/api/books');
@@ -12,7 +14,7 @@ export const useBookStore = create((set) => ({
     getSpecBook: async (bid) => {
       const res = await fetch(`https://book-store-veif.onrender.com/api/books/${bid}`);
       const data = await res.json();
-      set({ books: data });  // Set it as an array for consistency.
+      set({ books: data.data });  // Set it as an array for consistency.
     },
   
     createBook: async (newBook) => {
