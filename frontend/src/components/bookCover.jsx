@@ -94,7 +94,7 @@ const BookCover = ({ book}) => {
         Published: {book.publishYear}
       </Text>
       <HStack spacing={3} justify={'center'} mt={4}>
-        <Link to={`/books/details/${book._id}`}>
+        <Link to={`/books/${book._id}`}>
         <IconButton icon={<FaInfoCircle/>} color='black' bg={'white'}  />
         </Link>
       
