@@ -12,6 +12,10 @@ const ShowBook = () => {
     useEffect(()=> {
         getSpecBook(id);
     },[id, getSpecBook])
+
+    if (!selectedBook) {
+        return <Text>Loading book details...</Text>;
+      }
   
   return (
     
