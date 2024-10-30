@@ -14,7 +14,7 @@ export const useBookStore = create((set) => ({
     getSpecBook: async (bid) => {
       const res = await fetch(`https://book-store-veif.onrender.com/api/books/${bid}`);
       const data = await res.json();
-      set({ books: data.data });  // Set it as an array for consistency.
+      set({ selectedBook: data.data });  // Set it as an array for consistency.
     },
   
     createBook: async (newBook) => {
